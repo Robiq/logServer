@@ -1,0 +1,15 @@
+{
+  "name": "logserv",
+  "version": "1.0.0",
+  "description": "loggin",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "logger"
+  ],
+  "author": "Robin",
+  "license": "ISC"
+}
