@@ -12,7 +12,8 @@ const requestHandler = (request, response) => {
     console.error("Error!", e);
     var ip = "Not found!";
   }
-  console.log("Request nr: " + i++ + " URL: "+request.url + " IP: " + ip);
+  var cookie = request.headers['cookie'] || "None";
+  console.log("Request nr: " + i++ + " URL: "+request.url + " IP: " + ip + " Cookies: \n" + cookie);
   response.writeHead(200);//, {'Content-Type': 'image/jpeg'} );
   response.end("ok\n");//fs.readFileSync(__dirname+'/img.jpg'));
 }
