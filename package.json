@@ -11,5 +11,8 @@
     "logger"
   ],
   "author": "Robin",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "log-timestamp": "^0.3.0"
+  }
 }
