@@ -20,22 +20,28 @@ const requestHandler = (request, response) => {
     var ip = "Not found!";
   }
   
-  #Ignore favicon req
+  //Ignore favicon req
   if (request.url === "/favicon.ico"){
     response.end();
   }
   
   var cookie = request.headers['cookie'] || "None";
   console.log("\n[+] Request nr: " + i++ + "\n	[*] URL: "+request.url + "\n	[*] Cookies: " + cookie+ "\n	[*] IP: " + ip + " Fw_IP: " + ip_fw + " Real_ip: " + ip_real + "\n");
-
-  if(request.url === "/img"){
-	  response.writeHead(200, {"Content-Type": "image/jpeg"});
-	  response.write(fs.readFileSync(__dirname+'/Panda_hut.jpg'));
-	  response.end();
+  /*
+  console.log("request: " + request.url);
+  console.log("/img" === request.url);
+  console.log("/log/img" === request.url);
+  */
+  if(request.url == "/log/img"){
+	//console.log("img");
+	response.writeHead(200, {"Content-Type": "image/jpeg"});
+	response.write(fs.readFileSync(__dirname+'/Panda_hut.jpg'));
+	response.end();
   }else{
-	  response.writeHead(200, {"Content-Type": "text/html"});
-	  response.write(fs.readFileSync(__dirname+'/base.html'));
-	  response.end();
+	//console.log("norm");
+	response.writeHead(200, {"Content-Type": "text/html"});
+	response.write(fs.readFileSync(__dirname+'/base.html'));
+	response.end();
   }
 }
 
