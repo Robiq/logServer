@@ -19,9 +19,16 @@ const requestHandler = (request, response) => {
     console.error("Error!", e);
     var ip = "Not found!";
   }
+  
+  #Ignore favicon req
+  if (request.url === "/favicon.ico"){
+    response.end();
+  }
+  
   var cookie = request.headers['cookie'] || "None";
   console.log("\n[+] Request nr: " + i++ + "\n	[*] URL: "+request.url + "\n	[*] Cookies: " + cookie+ "\n	[*] IP: " + ip + " Fw_IP: " + ip_fw + " Real_ip: " + ip_real + "\n");
-  if(request.url == "/img"){
+
+  if(request.url === "/img"){
 	  response.writeHead(200, {"Content-Type": "image/jpeg"});
 	  response.write(fs.readFileSync(__dirname+'/Panda_hut.jpg'));
 	  response.end();
